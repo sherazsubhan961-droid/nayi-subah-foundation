@@ -21,14 +21,13 @@
 <body class="text-slate-800 antialiased">
 
     <!-- HERO / INTRO SECTION -->
-    <header class="gradient-hero text-white relative overflow-hidden py-20 px-4 border-b-4 border-amber-500">
+    <header class="gradient-hero text-white relative overflow-hidden py-16 px-4 border-b-4 border-amber-500">
         <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
             
-            <!-- OFFICIAL LOGO INCLUSION ELEMENT -->
-            <div class="flex justify-center mb-4">
-                <div class="bg-white p-4 rounded-2xl shadow-xl border border-amber-100 max-w-[220px]">
-                    <!-- Points to your repo asset. Upload your 41eb2df5-f5fa-405f-8073-6526152636c7.JPG image file directly into your GitHub repo as logo.jpg -->
-                    <img src="logo.jpg" alt="Nayi Subah Logo" class="w-full h-auto object-contain" onerror="this.src='https://i.ibb.co/XfXvXgX/logo-placeholder.jpg'">
+            <!-- OFFICIAL LOGO BOX -->
+            <div class="flex justify-center mb-2">
+                <div class="bg-white p-4 rounded-2xl shadow-xl border border-amber-100 max-w-[200px] w-full min-h-[120px] flex items-center justify-center">
+                    <img src="logo.jpg" alt="Nayi Subah Logo" class="w-full h-auto object-contain block mx-auto" onerror="this.src='https://i.ibb.co/6wD6H0r/41eb2df5-f5fa-405f-8073-6526152636c7.jpg'">
                 </div>
             </div>
 
@@ -43,21 +42,25 @@
                 "A New Dawn of Hope"
             </p>
 
-            <div class="max-w-2xl mx-auto space-y-4 text-emerald-100/90 text-base md:text-lg leading-relaxed pt-4 border-t border-emerald-800/60">
+            <div class="max-w-2xl mx-auto space-y-4 text-emerald-100/90 text-sm md:text-base leading-relaxed pt-4 border-t border-emerald-800/60">
                 <p>
                     We are an alliance of passionate, driven students hailing from <span class="text-white font-bold underline decoration-amber-400">Lahore Grammar School (LGS JT Johar Town)</span>. Having actively spearheaded impactful youth initiatives before—including mobilizing competitive community networks like the <span class="text-amber-300 font-semibold">CyberClash Tournaments</span>—our foundational mission has scaled.
                 </p>
-                <p class="font-medium text-white">
-                    This time, the foundation has been given the unique opportunity to lead you. We invite you to join us in establishing a new dawn of hope. Register below, work hand-in-hand with our executive councils, and let us build towards a monumental cause together.
+                <p class="font-medium text-white max-w-xl mx-auto bg-emerald-900/40 p-3 rounded-xl border border-emerald-700/50">
+                    Led & Founded by: <br>
+                    <span class="text-amber-300 font-bold tracking-wide uppercase text-sm">Khwaja Muhammad Subhan Sheraz</span> & <span class="text-amber-300 font-bold tracking-wide uppercase text-sm">Haider Ali Waqas</span>
+                </p>
+                <p class="font-medium text-emerald-200">
+                    This time, the foundation has been given the unique opportunity to lead you. We invite you to join us in establishing a new dawn of hope. Register below, work hand-in-hand with our executive councils, and let us build towards a monumental cause together. All fields are strictly mandatory.
                 </p>
             </div>
         </div>
     </header>
 
-    <!-- CORE INTERFACE CONTENT GRID -->
+    <!-- MAIN INTERFACE GRID -->
     <div class="max-w-5xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- COMPLIANT REGISTRATION INTERFACE FORM -->
+        <!-- ENLISTMENT APPLICATION FORM -->
         <main class="lg:col-span-7 bg-white border border-slate-200/80 shadow-md rounded-2xl p-6 md:p-8">
             <h3 class="serif-heading text-xl font-bold text-emerald-900 border-b border-slate-100 pb-3 mb-6 flex items-center gap-2">
                 <span>📝</span> Candidate Enlistment Application
@@ -65,47 +68,36 @@
 
             <form id="ngoApplicationForm" class="space-y-5">
                 
-                <!-- FULL NAME -->
+                <!-- FULL LEGAL NAME -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Legal Name</label>
-                    <input type="text" id="candidateName" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., Haider Ali Waqas" required />
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Legal Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="candidateName" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., Muhammad Ahmed" required />
                 </div>
 
                 <!-- EMAIL ADDRESS -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Email Address</label>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Email Address <span class="text-red-500">*</span></label>
                     <input type="email" id="candidateEmail" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="username@domain.com" required />
                 </div>
 
                 <!-- WHATSAPP NUMBER -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Active WhatsApp Phone Number</label>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Active WhatsApp Phone Number <span class="text-red-500">*</span></label>
                     <input type="tel" id="candidatePhone" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., 03XXXXXXXXX" required />
                 </div>
 
-                <!-- AGE COLUMN ARRAY SELECTION -->
+                <!-- DATE OF BIRTH SYSTEM -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Age Bracket Classification</label>
-                    <div class="grid grid-cols-3 gap-3">
-                        <label class="flex items-center justify-center p-3 border border-slate-200 rounded-xl bg-slate-50 cursor-pointer hover:bg-emerald-50/50 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 transition">
-                            <input type="radio" name="ageGroup" value="Under 16" class="sr-only" checked />
-                            <span class="text-sm font-semibold text-slate-700">Under 16</span>
-                        </label>
-                        <label class="flex items-center justify-center p-3 border border-slate-200 rounded-xl bg-slate-50 cursor-pointer hover:bg-emerald-50/50 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 transition">
-                            <input type="radio" name="ageGroup" value="16 - 19" class="sr-only" />
-                            <span class="text-sm font-semibold text-slate-700">16 - 19</span>
-                        </label>
-                        <label class="flex items-center justify-center p-3 border border-slate-200 rounded-xl bg-slate-50 cursor-pointer hover:bg-emerald-50/50 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 transition">
-                            <input type="radio" name="ageGroup" value="20+" class="sr-only" />
-                            <span class="text-sm font-semibold text-slate-700">20+</span>
-                        </label>
-                    </div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Date of Birth <span class="text-red-500">*</span></label>
+                    <input type="date" id="candidateDOB" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" required />
+                    <p class="text-[11px] text-slate-400 mt-1">Click the calendar icon on the right edge to select Month, Day, and Year instantly.</p>
                 </div>
 
                 <!-- TARGET STRATEGIC POSITION DROP-DOWN -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Target Strategic Department Position</label>
-                    <select id="targetPosition" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 cursor-pointer">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Target Strategic Department Position <span class="text-red-500">*</span></label>
+                    <select id="targetPosition" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 cursor-pointer" required>
+                        <option value="" disabled selected>Select a target position...</option>
                         <option value="Management Council Executive">Management Council Executive</option>
                         <option value="Media & Public Relations Director">Media & Public Relations Director</option>
                         <option value="Social Welfare Field Coordinator">Social Welfare Field Coordinator</option>
@@ -115,11 +107,11 @@
 
                 <!-- CAPABILITY SUBMISSION TEXTAREA -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Why are you uniquely capable of acquiring this specific role?</label>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Why are you uniquely capable of acquiring this specific role? <span class="text-red-500">*</span></label>
                     <textarea id="capabilityStatement" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="Detail your previous experiences, leadership skillsets, and how your values align with Nayi Subah..." required></textarea>
                 </div>
 
-                <!-- TRANSMIT SUBMIT ACTION BUTTON -->
+                <!-- TRANSMIT ACTION BUTTON -->
                 <button type="submit" class="w-full sun-accent hover:opacity-95 text-white font-bold uppercase tracking-[2px] text-sm py-3.5 rounded-xl transition shadow-md shadow-amber-600/20 cursor-pointer">
                     Submit Enlistment File to Council
                 </button>
@@ -133,7 +125,7 @@
                     🤝 Why Join Nayi Subah?
                 </h4>
                 <p class="text-sm leading-relaxed text-emerald-100/80">
-                    Nayi Subah is founded on the conviction that the youth of Lahore shouldn't wait for change—they must drive it. By stepping up, you obtain directly real-world execution experience in:
+                    Nayi Subah is founded on the conviction that the youth of Lahore shouldn't wait for change—they must drive it under structured student leadership. By stepping up, you obtain direct real-world execution experience in:
                 </p>
                 <ul class="text-xs space-y-2 font-medium text-emerald-200">
                     <li class="flex items-center gap-2">✨ Community Mobilization Models</li>
@@ -147,7 +139,7 @@
                     📢 Application Review Pipeline
                 </h4>
                 <p class="text-xs text-amber-800/90 leading-relaxed">
-                    All digital entries route straight to our executive oversight boards. Candidates passing our core requirements will be reached out to for deep validation interviews conducted directly by the organizational management.
+                    All digital entries route straight to our executive oversight boards. Candidates passing our core requirements will be reached out to for deep validation interviews conducted directly by the organizational management team.
                 </p>
             </div>
         </aside>
@@ -161,9 +153,14 @@
             const name = document.getElementById('candidateName').value.trim();
             const email = document.getElementById('candidateEmail').value.trim();
             const phone = document.getElementById('candidatePhone').value.trim();
-            const ageGroup = document.querySelector('input[name="ageGroup"]:checked').value;
+            const dob = document.getElementById('candidateDOB').value;
             const position = document.getElementById('targetPosition').value;
             const capability = document.getElementById('capabilityStatement').value.trim();
+
+            if(!name || !email || !phone || !dob || !position || !capability) {
+                Swal.fire({ icon: 'error', title: 'Missing Info', text: 'All application fields are mandatory!', background: '#022c22', color: '#fff' });
+                return;
+            }
 
             Swal.fire({
                 title: 'Transmitting Credentials...',
@@ -178,7 +175,7 @@
                 const response = await fetch('/api/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, phone, ageGroup, position, capability })
+                    body: JSON.stringify({ name, email, phone, dob, position, capability })
                 });
 
                 const result = await response.json();
@@ -199,7 +196,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'REGISTRATION FAULT',
-                    text: 'Unable to route transmission file packets. Please try again.',
+                    text: 'Unable to route transmission file packets. Please ensure this is deployed via Pages instead of Workers.',
                     background: '#022c22',
                     color: '#fff'
                 });
