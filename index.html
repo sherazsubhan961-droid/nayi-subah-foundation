@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayi Subah Foundation | A New Dawn of Hope</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfbf7; }
+        .serif-heading { font-family: 'Cinzel', serif; }
+        .gradient-hero {
+            background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+        }
+        .sun-accent {
+            background: linear-gradient(90deg, #ea580c 0%, #f59e0b 100%);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- HERO / INTRO SECTION -->
+    <header class="gradient-hero text-white relative overflow-hidden py-20 px-4 border-b-4 border-amber-500">
+        <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
+            
+            <!-- OFFICIAL LOGO INCLUSION ELEMENT -->
+            <div class="flex justify-center mb-4">
+                <div class="bg-white p-4 rounded-2xl shadow-xl border border-amber-100 max-w-[220px]">
+                    <!-- Points to your repo asset. Upload your 41eb2df5-f5fa-405f-8073-6526152636c7.JPG image file directly into your GitHub repo as logo.jpg -->
+                    <img src="logo.jpg" alt="Nayi Subah Logo" class="w-full h-auto object-contain" onerror="this.src='https://i.ibb.co/XfXvXgX/logo-placeholder.jpg'">
+                </div>
+            </div>
+
+            <span class="inline-block bg-amber-500/20 border border-amber-400/30 text-amber-300 font-semibold tracking-[3px] text-xs uppercase px-4 py-1.5 rounded-full">
+                Official Youth Leadership Portal
+            </span>
+            
+            <h1 class="serif-heading text-4xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-white">
+                NAYI SUBAH FOUNDATION
+            </h1>
+            <p class="text-amber-400 font-medium tracking-[2px] text-sm md:text-base uppercase -mt-2">
+                "A New Dawn of Hope"
+            </p>
+
+            <div class="max-w-2xl mx-auto space-y-4 text-emerald-100/90 text-base md:text-lg leading-relaxed pt-4 border-t border-emerald-800/60">
+                <p>
+                    We are an alliance of passionate, driven students hailing from <span class="text-white font-bold underline decoration-amber-400">Lahore Grammar School (LGS JT Johar Town)</span>. Having actively spearheaded impactful youth initiatives before—including mobilizing competitive community networks like the <span class="text-amber-300 font-semibold">CyberClash Tournaments</span>—our foundational mission has scaled.
+                </p>
+                <p class="font-medium text-white">
+                    This time, the foundation has been given the unique opportunity to lead you. We invite you to join us in establishing a new dawn of hope. Register below, work hand-in-hand with our executive councils, and let us build towards a monumental cause together.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- CORE INTERFACE CONTENT GRID -->
+    <div class="max-w-5xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- COMPLIANT REGISTRATION INTERFACE FORM -->
+        <main class="lg:col-span-7 bg-white border border-slate-200/80 shadow-md rounded-2xl p-6 md:p-8">
+            <h3 class="serif-heading text-xl font-bold text-emerald-900 border-b border-slate-100 pb-3 mb-6 flex items-center gap-2">
+                <span>📝</span> Candidate Enlistment Application
+            </h3>
+
+            <form id="ngoApplicationForm" class="space-y-5">
+                
+                <!-- FULL NAME -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Legal Name</label>
+                    <input type="text" id="candidateName" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., Haider Ali Waqas" required />
+                </div>
+
+                <!-- EMAIL ADDRESS -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Email Address</label>
+                    <input type="email" id="candidateEmail" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="username@domain.com" required />
+                </div>
+
+                <!-- WHATSAPP NUMBER -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Active WhatsApp Phone Number</label>
+                    <input type="tel" id="candidatePhone" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., 03XXXXXXXXX" required />
+                </div>
+
+                <!-- AGE COLUMN ARRAY SELECTION -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Age Bracket Classification</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <label class="flex items-center justify-center p-3 border border-slate-200 rounded-xl bg-slate-50 cursor-pointer hover:bg-emerald-50/50 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 transition">
+                            <input type="radio" name="ageGroup" value="Under 16" class="sr-only" checked />
+                            <span class="text-sm font-semibold text-slate-700">Under 16</span>
+                        </label>
+                        <label class="flex items-center justify-center p-3 border border-slate-200 rounded-xl bg-slate-50 cursor-pointer hover:bg-emerald-50/50 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 transition">
+                            <input type="radio" name="ageGroup" value="16 - 19" class="sr-only" />
+                            <span class="text-sm font-semibold text-slate-700">16 - 19</span>
+                        </label>
+                        <label class="flex items-center justify-center p-3 border border-slate-200 rounded-xl bg-slate-50 cursor-pointer hover:bg-emerald-50/50 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 transition">
+                            <input type="radio" name="ageGroup" value="20+" class="sr-only" />
+                            <span class="text-sm font-semibold text-slate-700">20+</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- TARGET STRATEGIC POSITION DROP-DOWN -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Target Strategic Department Position</label>
+                    <select id="targetPosition" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 cursor-pointer">
+                        <option value="Management Council Executive">Management Council Executive</option>
+                        <option value="Media & Public Relations Director">Media & Public Relations Director</option>
+                        <option value="Social Welfare Field Coordinator">Social Welfare Field Coordinator</option>
+                        <option value="Logistics Deployment Specialist">Logistics Deployment Specialist</option>
+                    </select>
+                </div>
+
+                <!-- CAPABILITY SUBMISSION TEXTAREA -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Why are you uniquely capable of acquiring this specific role?</label>
+                    <textarea id="capabilityStatement" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="Detail your previous experiences, leadership skillsets, and how your values align with Nayi Subah..." required></textarea>
+                </div>
+
+                <!-- TRANSMIT SUBMIT ACTION BUTTON -->
+                <button type="submit" class="w-full sun-accent hover:opacity-95 text-white font-bold uppercase tracking-[2px] text-sm py-3.5 rounded-xl transition shadow-md shadow-amber-600/20 cursor-pointer">
+                    Submit Enlistment File to Council
+                </button>
+            </form>
+        </main>
+
+        <!-- SIDEBAR INFO PIECES -->
+        <aside class="lg:col-span-5 space-y-6">
+            <div class="bg-emerald-950 text-emerald-100 p-5 rounded-2xl border border-emerald-800 shadow-sm space-y-4">
+                <h4 class="serif-heading text-lg font-bold text-amber-300 border-b border-emerald-800 pb-2 uppercase tracking-wide">
+                    🤝 Why Join Nayi Subah?
+                </h4>
+                <p class="text-sm leading-relaxed text-emerald-100/80">
+                    Nayi Subah is founded on the conviction that the youth of Lahore shouldn't wait for change—they must drive it. By stepping up, you obtain directly real-world execution experience in:
+                </p>
+                <ul class="text-xs space-y-2 font-medium text-emerald-200">
+                    <li class="flex items-center gap-2">✨ Community Mobilization Models</li>
+                    <li class="flex items-center gap-2">✨ Grassroots Project Management Logistics</li>
+                    <li class="flex items-center gap-2">✨ Strategic Media Campaign Design Execution</li>
+                </ul>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-200/60 p-5 rounded-2xl shadow-sm">
+                <h4 class="serif-heading text-sm font-bold text-amber-900 uppercase tracking-wider mb-2">
+                    📢 Application Review Pipeline
+                </h4>
+                <p class="text-xs text-amber-800/90 leading-relaxed">
+                    All digital entries route straight to our executive oversight boards. Candidates passing our core requirements will be reached out to for deep validation interviews conducted directly by the organizational management.
+                </p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- JAVASCRIPT CONNECTIVITY LAYER -->
+    <script>
+        document.getElementById('ngoApplicationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('candidateName').value.trim();
+            const email = document.getElementById('candidateEmail').value.trim();
+            const phone = document.getElementById('candidatePhone').value.trim();
+            const ageGroup = document.querySelector('input[name="ageGroup"]:checked').value;
+            const position = document.getElementById('targetPosition').value;
+            const capability = document.getElementById('capabilityStatement').value.trim();
+
+            Swal.fire({
+                title: 'Transmitting Credentials...',
+                text: 'Syncing with Nayi Subah database registries...',
+                background: '#022c22',
+                color: '#fff',
+                allowOutsideClick: false,
+                didOpen: () => { Swal.showLoading(); }
+            });
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, ageGroup, position, capability })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'APPLICATION TRANSMITTED',
+                        text: 'Your file has reached our executive boards. Prepare for your interview!',
+                        background: '#022c22',
+                        color: '#fff'
+                    });
+                    document.getElementById('ngoApplicationForm').reset();
+                } else {
+                    throw new Error(result.error || 'Server processing fault');
+                }
+            } catch (err) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'REGISTRATION FAULT',
+                    text: 'Unable to route transmission file packets. Please try again.',
+                    background: '#022c22',
+                    color: '#fff'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
