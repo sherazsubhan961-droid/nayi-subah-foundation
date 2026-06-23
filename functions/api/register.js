@@ -10,44 +10,51 @@ export async function onRequestPost(context) {
 
     try {
         const body = await request.json();
-        const { name, email, phone, dob, position, capability } = body;
+        const { name, email, phone, dob, position, capability, cvData, cvName } = body;
 
-        // Structured email payload delivering data profiles to admin targets
         const emailHTMLContent = `
         <div style="background-color: #f3f4f6; padding: 30px; font-family: sans-serif;">
-            <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border-top: 6px solid #059669; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); padding: 25px;">
-                <h2 style="color: #065f46; margin-top: 0; font-family: serif; text-transform: uppercase; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">🕊️ NAYI SUBAH APPLICATION FILED</h2>
+            <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border-top: 6px solid #d97706; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); padding: 25px;">
+                <h2 style="color: #065f46; margin-top: 0; font-family: serif; text-transform: uppercase; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">🕊️ NAYI SUBAH APPLICANT PROFILE REGISTRY</h2>
                 
-                <p style="font-size: 14px; color: #4b5563;">A complete candidate file has been uploaded via the live LGS JT leadership hub node.</p>
+                <p style="font-size: 14px; color: #4b5563;">A mandatory candidate file has been received via the live Pages hub deployment node.</p>
                 
                 <div style="background-color: #f0fdf4; border-left: 4px solid #10b981; padding: 15px; margin: 20px 0; border-radius: 4px;">
-                    <h3 style="margin: 0 0 10px 0; color: #065f46; font-size: 15px;">👤 CANDIDATE PROFILE</h3>
+                    <h3 style="margin: 0 0 10px 0; color: #065f46; font-size: 15px;">👤 CANDIDATE PROFILE INFO</h3>
                     <p style="margin: 4px 0; font-size: 14px;"><strong>Full Legal Name:</strong> ${name}</p>
-                    <p style="margin: 4px 0; font-size: 14px;"><strong>Email Node:</strong> ${email}</p>
+                    <p style="margin: 4px 0; font-size: 14px;"><strong>Email:</strong> ${email}</p>
                     <p style="margin: 4px 0; font-size: 14px;"><strong>WhatsApp Line:</strong> ${phone}</p>
                     <p style="margin: 4px 0; font-size: 14px;"><strong>Date of Birth:</strong> ${dob}</p>
                 </div>
 
                 <div style="margin: 20px 0;">
-                    <p style="margin: 4px 0; font-size: 14px;"><strong>Requested Position Node:</strong></p>
+                    <p style="margin: 4px 0; font-size: 14px;"><strong>Target Strategic Position:</strong></p>
                     <div style="background-color: #fffbeb; border: 1px solid #fef3c7; color: #b45309; font-weight: bold; padding: 10px; border-radius: 6px; display: inline-block; font-size: 14px;">
                         🎯 ${position}
                     </div>
                 </div>
 
-                <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; padding: 15px; border-radius: 8px;">
-                    <h4 style="margin: 0 0 8px 0; color: #374151; font-size: 13px; text-transform: uppercase;">Capabilities Statement:</h4>
+                <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    <h4 style="margin: 0 0 8px 0; color: #374151; font-size: 13px; text-transform: uppercase;">Core Capability Statement:</h4>
                     <p style="margin: 0; font-size: 13px; color: #4b5563; line-height: 1.6; font-style: italic;">"${capability}"</p>
                 </div>
 
+                <p style="font-size: 14px; color: #1e293b; font-weight: bold; background-color: #f8fafc; padding: 12px; border: 1px dashed #cbd5e1; border-radius: 6px; text-align: center;">
+                    📎 CV file attachment processing details are logged directly to secure Resend structural arrays.
+                </p>
+
                 <p style="font-size: 11px; color: #9ca3af; text-align: center; margin-top: 30px; border-top: 1px solid #f3f4f6; padding-top: 10px;">
+                    Motive: Help the Poor & Support Orphans<br>
                     Co-Founded & Spearheaded by Khwaja Muhammad Subhan Sheraz & Haider Ali Waqas
                 </p>
             </div>
         </div>`;
 
-        // ⚠️ Replace with your actual Resend API Key from your Resend Dashboard!
-        const resendApiKey = 're_C1NcnkVR_9Lu6kyDNy32emeL1WRJTCcFV';
+        // Parse file arrays safely for email presentation
+        const base64Content = cvData.split(',')[1];
+
+        // ⚠️ Put your exact Resend API Key inside these single quotes!
+        const resendApiKey = 'YOUR_ACTUAL_RESEND_KEY_HERE';
 
         await fetch('https://api.resend.com/emails', {
             method: 'POST',
@@ -58,8 +65,14 @@ export async function onRequestPost(context) {
             body: JSON.stringify({
                 from: 'NayiSubah Portal <onboarding@resend.dev>',
                 to: 'sherazsubhan961@gmail.com',
-                subject: `🕊️ NAYI SUBAH CANDIDATE FILE: ${name}`,
-                html: emailHTMLContent
+                subject: `🕊️ NAYI SUBAH CANDIDATE REGISTRATION: ${name}`,
+                html: emailHTMLContent,
+                attachments: [
+                    {
+                        filename: cvName,
+                        content: base64Content
+                    }
+                ]
             })
         });
 
