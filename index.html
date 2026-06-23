@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayi Subah Foundation | A New Dawn of Hope</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Stable Production Tailwind CSS Engine CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
@@ -21,17 +22,21 @@
 <body class="text-slate-800 antialiased">
 
     <!-- HERO / INTRO SECTION -->
-    <img src="logo.jpg" alt="Nayi Subah Logo" class="w-full h-auto object-contain block mx-auto" onerror="this.src='https://i.ibb.co/6wD6H0r/41eb2df5-f5fa-405f-8073-6526152636c7.jpg'">
+    <header class="gradient-hero text-white relative overflow-hidden py-16 px-4 border-b-4 border-amber-500">
         <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
             
-            <!-- OFFICIAL LOGO BOX -->
+            <!-- OFFICIAL LOGO BOX (Dimensions locked to prevent layout disruption) -->
             <div class="flex justify-center mb-2">
-                <div class="bg-white p-4 rounded-2xl shadow-xl border border-amber-100 max-w-[200px] w-full min-h-[120px] flex items-center justify-center">
-                    <img src="logo.jpg" alt="Nayi Subah Logo" class="w-full h-auto object-contain block mx-auto" onerror="this.src='https://i.ibb.co/6wD6H0r/41eb2df5-f5fa-405f-8073-6526152636c7.jpg'">
+                <div class="bg-white p-3 rounded-2xl shadow-xl border border-amber-100 flex items-center justify-center" style="width: 180px; height: 140px; overflow: hidden;">
+                    <!-- Pointing directly to your image asset, with a locked max width and height fallback -->
+                    <img src="logo.jpg" 
+                         alt="Nayi Subah Logo" 
+                         style="width: 100%; height: 100%; object-fit: contain; max-width: 160px; max-height: 120px;" 
+                         onerror="this.onerror=null; this.src='https://images2.imgbox.com/3d/8c/v25Bv4eU_o.jpg';">
                 </div>
             </div>
 
-            <span class="inline-block bg-amber-500/20 border border-amber-400/30 text-amber-300 font-semibold tracking-[3px] text-xs uppercase px-4 py-1.5 rounded-full">
+            <span class="inline-block bg-emerald-900/60 border border-amber-400/30 text-amber-300 font-semibold tracking-[3px] text-xs uppercase px-4 py-1.5 rounded-full">
                 Official Youth Leadership Portal
             </span>
             
@@ -46,10 +51,10 @@
                 <p>
                     We are an alliance of passionate, driven students hailing from <span class="text-white font-bold underline decoration-amber-400">Lahore Grammar School (LGS JT Johar Town)</span>. Having actively spearheaded impactful youth initiatives before—including mobilizing competitive community networks like the <span class="text-amber-300 font-semibold">CyberClash Tournaments</span>—our foundational mission has scaled.
                 </p>
-                <p class="font-medium text-white max-w-xl mx-auto bg-emerald-900/40 p-3 rounded-xl border border-emerald-700/50">
-                    Led & Founded by: <br>
+                <div class="font-medium text-white max-w-xl mx-auto bg-emerald-950/60 p-3 rounded-xl border border-emerald-700/50">
+                    <p class="text-xs uppercase tracking-wider text-emerald-300 font-bold mb-1">Lead & Founded by:</p>
                     <span class="text-amber-300 font-bold tracking-wide uppercase text-sm">Khwaja Muhammad Subhan Sheraz</span> & <span class="text-amber-300 font-bold tracking-wide uppercase text-sm">Haider Ali Waqas</span>
-                </p>
+                </div>
                 <p class="font-medium text-emerald-200">
                     This time, the foundation has been given the unique opportunity to lead you. We invite you to join us in establishing a new dawn of hope. Register below, work hand-in-hand with our executive councils, and let us build towards a monumental cause together. All fields are strictly mandatory.
                 </p>
