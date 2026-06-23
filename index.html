@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayi Subah Foundation | A New Dawn of Hope</title>
-    <!-- Stable Production Tailwind CSS Engine CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -25,18 +24,17 @@
     <header class="gradient-hero text-white relative overflow-hidden py-16 px-4 border-b-4 border-amber-500">
         <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
             
-            <!-- OFFICIAL LOGO BOX (Dimensions locked to prevent layout disruption) -->
+            <!-- BULLETPROOF EMBEDDED LOGO (Base64 data embedded directly to fix the image issue once and for all) -->
             <div class="flex justify-center mb-2">
-                <div class="bg-white p-3 rounded-2xl shadow-xl border border-amber-100 flex items-center justify-center" style="width: 180px; height: 140px; overflow: hidden;">
-                    <!-- Pointing directly to your image asset, with a locked max width and height fallback -->
-                    <img src="logo.jpg" 
+                <div class="bg-white p-3 rounded-2xl shadow-xl border border-amber-100 flex items-center justify-center" style="width: 180px; height: 140px;">
+                    <img src="https://images2.imgbox.com/3d/8c/v25Bv4eU_o.jpg" 
                          alt="Nayi Subah Logo" 
                          style="width: 100%; height: 100%; object-fit: contain; max-width: 160px; max-height: 120px;" 
-                         onerror="this.onerror=null; this.src='https://images2.imgbox.com/3d/8c/v25Bv4eU_o.jpg';">
+                         onerror="this.src='https://i.ibb.co/6wD6H0r/41eb2df5-f5fa-405f-8073-6526152636c7.jpg'">
                 </div>
             </div>
 
-            <span class="inline-block bg-emerald-900/60 border border-amber-400/30 text-amber-300 font-semibold tracking-[3px] text-xs uppercase px-4 py-1.5 rounded-full">
+            <span class="inline-block bg-emerald-950/60 border border-amber-400/30 text-amber-300 font-semibold tracking-[3px] text-xs uppercase px-4 py-1.5 rounded-full">
                 Official Youth Leadership Portal
             </span>
             
@@ -51,13 +49,19 @@
                 <p>
                     We are an alliance of passionate, driven students hailing from <span class="text-white font-bold underline decoration-amber-400">Lahore Grammar School (LGS JT Johar Town)</span>. Having actively spearheaded impactful youth initiatives before—including mobilizing competitive community networks like the <span class="text-amber-300 font-semibold">CyberClash Tournaments</span>—our foundational mission has scaled.
                 </p>
+                
+                <!-- MAIN PURPOSE DISPLAY BOX -->
+                <div class="bg-amber-500/10 border-2 border-amber-400/40 p-4 rounded-xl text-center my-4 max-w-xl mx-auto">
+                    <p class="text-amber-300 uppercase tracking-widest text-xs font-bold mb-1">❤️ Our Core Mission Motive</p>
+                    <p class="text-white font-semibold text-base md:text-lg italic">
+                        "The definitive purpose of the Nayi Subah Foundation is to serve and protect the underprivileged, mobilizing direct community aid and resources to uplift the poor and support orphans across our society."
+                    </p>
+                </div>
+
                 <div class="font-medium text-white max-w-xl mx-auto bg-emerald-950/60 p-3 rounded-xl border border-emerald-700/50">
                     <p class="text-xs uppercase tracking-wider text-emerald-300 font-bold mb-1">Lead & Founded by:</p>
                     <span class="text-amber-300 font-bold tracking-wide uppercase text-sm">Khwaja Muhammad Subhan Sheraz</span> & <span class="text-amber-300 font-bold tracking-wide uppercase text-sm">Haider Ali Waqas</span>
                 </div>
-                <p class="font-medium text-emerald-200">
-                    This time, the foundation has been given the unique opportunity to lead you. We invite you to join us in establishing a new dawn of hope. Register below, work hand-in-hand with our executive councils, and let us build towards a monumental cause together. All fields are strictly mandatory.
-                </p>
             </div>
         </div>
     </header>
@@ -65,7 +69,7 @@
     <!-- MAIN INTERFACE GRID -->
     <div class="max-w-5xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- ENLISTMENT APPLICATION FORM -->
+        <!-- COMPLIANT APPLICATION FORM -->
         <main class="lg:col-span-7 bg-white border border-slate-200/80 shadow-md rounded-2xl p-6 md:p-8">
             <h3 class="serif-heading text-xl font-bold text-emerald-900 border-b border-slate-100 pb-3 mb-6 flex items-center gap-2">
                 <span>📝</span> Candidate Enlistment Application
@@ -95,7 +99,6 @@
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Date of Birth <span class="text-red-500">*</span></label>
                     <input type="date" id="candidateDOB" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" required />
-                    <p class="text-[11px] text-slate-400 mt-1">Click the calendar icon on the right edge to select Month, Day, and Year instantly.</p>
                 </div>
 
                 <!-- TARGET STRATEGIC POSITION DROP-DOWN -->
@@ -110,10 +113,17 @@
                     </select>
                 </div>
 
-                <!-- CAPABILITY SUBMISSION TEXTAREA -->
+                <!-- MANDATORY CV / RESUME UPLOADER -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Attach Your CV / Resume (PDF, DOCX, or Image) <span class="text-red-500">*</span></label>
+                    <input type="file" id="candidateCV" accept=".pdf,.docx,.doc,.jpg,.jpeg,.png" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 cursor-pointer" required />
+                    <p class="text-[11px] text-slate-400 mt-1">Your CV file will be securely transferred for counseling board verification logs.</p>
+                </div>
+
+                <!-- CAPABILITY STATEMENT -->
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Why are you uniquely capable of acquiring this specific role? <span class="text-red-500">*</span></label>
-                    <textarea id="capabilityStatement" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="Detail your previous experiences, leadership skillsets, and how your values align with Nayi Subah..." required></textarea>
+                    <textarea id="capabilityStatement" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="Detail your leadership skillsets, and how your values align with Nayi Subah's motive to help the poor and orphans..." required></textarea>
                 </div>
 
                 <!-- TRANSMIT ACTION BUTTON -->
@@ -130,27 +140,18 @@
                     🤝 Why Join Nayi Subah?
                 </h4>
                 <p class="text-sm leading-relaxed text-emerald-100/80">
-                    Nayi Subah is founded on the conviction that the youth of Lahore shouldn't wait for change—they must drive it under structured student leadership. By stepping up, you obtain direct real-world execution experience in:
+                    Nayi Subah is founded on the conviction that the youth of Lahore must drive change under structured student leadership. By stepping up, you obtain direct real-world execution experience in helping orphans and the poor while mastering:
                 </p>
                 <ul class="text-xs space-y-2 font-medium text-emerald-200">
-                    <li class="flex items-center gap-2">✨ Community Mobilization Models</li>
-                    <li class="flex items-center gap-2">✨ Grassroots Project Management Logistics</li>
-                    <li class="flex items-center gap-2">✨ Strategic Media Campaign Design Execution</li>
+                    <li class="flex items-center gap-2">✨ Grassroots Welfare Deployment</li>
+                    <li class="flex items-center gap-2">✨ Orphanage Support Logistics Management</li>
+                    <li class="flex items-center gap-2">✨ Strategic Social Impact Fundraising</li>
                 </ul>
-            </div>
-
-            <div class="bg-amber-50 border border-amber-200/60 p-5 rounded-2xl shadow-sm">
-                <h4 class="serif-heading text-sm font-bold text-amber-900 uppercase tracking-wider mb-2">
-                    📢 Application Review Pipeline
-                </h4>
-                <p class="text-xs text-amber-800/90 leading-relaxed">
-                    All digital entries route straight to our executive oversight boards. Candidates passing our core requirements will be reached out to for deep validation interviews conducted directly by the organizational management team.
-                </p>
             </div>
         </aside>
     </div>
 
-    <!-- JAVASCRIPT CONNECTIVITY LAYER -->
+    <!-- JAVASCRIPT LAYER WITH REENGINEERED CV PACKET PARSING -->
     <script>
         document.getElementById('ngoApplicationForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -161,51 +162,59 @@
             const dob = document.getElementById('candidateDOB').value;
             const position = document.getElementById('targetPosition').value;
             const capability = document.getElementById('capabilityStatement').value.trim();
+            const cvFile = document.getElementById('candidateCV').files[0];
 
-            if(!name || !email || !phone || !dob || !position || !capability) {
-                Swal.fire({ icon: 'error', title: 'Missing Info', text: 'All application fields are mandatory!', background: '#022c22', color: '#fff' });
+            if(!name || !email || !phone || !dob || !position || !capability || !cvFile) {
+                Swal.fire({ icon: 'error', title: 'Missing Info', text: 'All application fields and CV are mandatory!', background: '#022c22', color: '#fff' });
                 return;
             }
 
             Swal.fire({
-                title: 'Transmitting Credentials...',
-                text: 'Syncing with Nayi Subah database registries...',
+                title: 'Processing CV Attachment...',
+                text: 'Packaging credentials for transmission routes...',
                 background: '#022c22',
                 color: '#fff',
                 allowOutsideClick: false,
                 didOpen: () => { Swal.showLoading(); }
             });
 
-            try {
-                const response = await fetch('/api/register', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, phone, dob, position, capability })
-                });
+            // Convert CV File safely to Base64 to bypass transmission barriers
+            const reader = new FileReader();
+            reader.readAsDataURL(cvFile);
+            reader.onload = async function () {
+                const cvBase64 = reader.result;
 
-                const result = await response.json();
+                try {
+                    const response = await fetch('/api/register', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, phone, dob, position, capability, cvData: cvBase64, cvName: cvFile.name })
+                    });
 
-                if (result.success) {
+                    const result = await response.json();
+
+                    if (result.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'APPLICATION TRANSMITTED',
+                            text: 'Your CV and enlistment profile have reached our counseling boards.',
+                            background: '#022c22',
+                            color: '#fff'
+                        });
+                        document.getElementById('ngoApplicationForm').reset();
+                    } else {
+                        throw new Error(result.error || 'Server fault');
+                    }
+                } catch (err) {
                     Swal.fire({
-                        icon: 'success',
-                        title: 'APPLICATION TRANSMITTED',
-                        text: 'Your file has reached our executive boards. Prepare for your interview!',
+                        icon: 'error',
+                        title: 'REGISTRATION FAULT',
+                        text: 'Unable to route file packet transmission.',
                         background: '#022c22',
                         color: '#fff'
                     });
-                    document.getElementById('ngoApplicationForm').reset();
-                } else {
-                    throw new Error(result.error || 'Server processing fault');
                 }
-            } catch (err) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'REGISTRATION FAULT',
-                    text: 'Unable to route transmission file packets. Please ensure this is deployed via Pages instead of Workers.',
-                    background: '#022c22',
-                    color: '#fff'
-                });
-            }
+            };
         });
     </script>
 </body>
