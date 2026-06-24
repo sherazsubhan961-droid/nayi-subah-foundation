@@ -5,34 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayi Subah Foundation | A New Dawn of Hope</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=600;800&family=Plus+Jakarta+Sans:wght=400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfbf7; }
         .serif-heading { font-family: 'Cinzel', serif; }
-        .gradient-hero {
-            background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
-        }
-        .sun-accent {
-            background: linear-gradient(90deg, #ea580c 0%, #f59e0b 100%);
-        }
+        .gradient-hero { background: linear-gradient(135deg, #064e3b 0%, #022c22 100%); }
+        .sun-accent { background: linear-gradient(90deg, #ea580c 0%, #f59e0b 100%); }
     </style>
 </head>
 <body class="text-slate-800 antialiased">
 
-    <!-- HERO / INTRO SECTION -->
+    <!-- HERO SECTION -->
     <header class="gradient-hero text-white relative overflow-hidden py-16 px-4 border-b-4 border-amber-500">
         <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
-            
-            <!-- NATIVE EMBEDDED LOGO -->
             <div class="flex justify-center mb-2">
                 <div class="bg-white p-3 rounded-2xl shadow-xl border border-amber-100 flex items-center justify-center" style="width: 180px; height: 140px;">
                     <svg viewBox="0 0 100 80" class="w-full h-full" style="max-height: 110px;" xmlns="http://www.w3.org/2000/svg">
                         <defs>
-                            <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#ea580c" />
-                                <stop offset="100%" stop-color="#eab308" />
-                            </linearGradient>
+                            <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ea580c" /><stop offset="100%" stop-color="#eab308" /></linearGradient>
                         </defs>
                         <circle cx="50" cy="55" r="24" fill="url(#sunGrad)" />
                         <path d="M50 15 L50 25 M20 40 L28 44 M80 40 L72 44 M26 22 L33 28 M74 22 L67 28" stroke="#ea580c" stroke-width="3" stroke-linecap="round" />
@@ -42,65 +33,43 @@
                     </svg>
                 </div>
             </div>
-
-            <span class="inline-block bg-emerald-950/60 border border-amber-400/30 text-amber-300 font-semibold tracking-[3px] text-xs uppercase px-4 py-1.5 rounded-full">
-                Official Youth Leadership Portal
-            </span>
-            
-            <h1 class="serif-heading text-4xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-white">
-                NAYI SUBAH FOUNDATION
-            </h1>
-            <p class="text-amber-400 font-medium tracking-[2px] text-sm md:text-base uppercase -mt-2">
-                "A New Dawn of Hope"
-            </p>
-
-            <div class="max-w-2xl mx-auto space-y-4 text-emerald-100/90 text-sm md:text-base leading-relaxed pt-4 border-t border-emerald-800/60">
-                <div class="bg-amber-500/10 border-2 border-amber-400/40 p-4 rounded-xl text-center my-4 max-w-xl mx-auto">
-                    <p class="text-amber-300 uppercase tracking-widest text-xs font-bold mb-1">❤️ Our Core Mission Motive</p>
-                    <p class="text-white font-semibold text-base md:text-lg italic">
-                        "The definitive purpose of the Nayi Subah Foundation is to serve and protect the underprivileged, mobilizing direct community aid and resources to uplift the poor and support orphans across our society."
-                    </p>
-                </div>
-
-                <div class="font-medium text-white max-w-xl mx-auto bg-emerald-950/60 p-3 rounded-xl border border-emerald-700/50">
-                    <p class="text-xs uppercase tracking-wider text-emerald-300 font-bold mb-1">Lead & Founded by:</p>
-                    <span class="text-amber-300 font-bold tracking-wide uppercase text-sm">Khwaja Muhammad Subhan Sheraz</span> & <span class="text-amber-300 font-bold tracking-wide uppercase text-sm">Haider Ali Waqas</span>
-                </div>
+            <span class="inline-block bg-emerald-950/60 border border-amber-400/30 text-amber-300 font-semibold tracking-[3px] text-xs uppercase px-4 py-1.5 rounded-full">Official Youth Leadership Portal</span>
+            <h1 class="serif-heading text-4xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-white">NAYI SUBAH FOUNDATION</h1>
+            <p class="text-amber-400 font-medium tracking-[2px] text-sm md:text-base uppercase -mt-2">"A New Dawn of Hope"</p>
+            <div class="bg-amber-500/10 border-2 border-amber-400/40 p-4 rounded-xl text-center my-4 max-w-xl mx-auto">
+                <p class="text-amber-300 uppercase tracking-widest text-xs font-bold mb-1">❤️ Our Core Mission Motive</p>
+                <p class="text-white font-semibold text-base md:text-lg italic">"The definitive purpose of the Nayi Subah Foundation is to serve and protect the underprivileged, mobilizing direct community aid and resources to uplift the poor and support orphans across our society."</p>
+            </div>
+            <div class="font-medium text-white max-w-xl mx-auto bg-emerald-950/60 p-3 rounded-xl border border-emerald-700/50 text-xs md:text-sm">
+                Lead & Founded by: <span class="text-amber-300 font-bold uppercase">Khwaja Muhammad Subhan Sheraz</span> & <span class="text-amber-300 font-bold uppercase">Haider Ali Waqas</span>
             </div>
         </div>
     </header>
 
-    <!-- MAIN FORM GRID -->
+    <!-- FORM GRID -->
     <div class="max-w-5xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <main class="lg:col-span-7 bg-white border border-slate-200/80 shadow-md rounded-2xl p-6 md:p-8">
-            <h3 class="serif-heading text-xl font-bold text-emerald-900 border-b border-slate-100 pb-3 mb-6 flex items-center gap-2">
-                <span>📝</span> Candidate Enlistment Application
-            </h3>
-
+            <h3 class="serif-heading text-xl font-bold text-emerald-900 border-b border-slate-100 pb-3 mb-6 flex items-center gap-2"><span>📝</span> Candidate Enlistment Application</h3>
             <form id="ngoApplicationForm" class="space-y-5">
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Legal Name <span class="text-red-500">*</span></label>
-                    <input type="text" id="candidateName" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., Muhammad Ahmed" required />
+                    <input type="text" id="candidateName" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none" placeholder="e.g., Muhammad Ahmed" required />
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Email Address <span class="text-red-500">*</span></label>
-                    <input type="email" id="candidateEmail" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="username@domain.com" required />
+                    <input type="email" id="candidateEmail" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none" placeholder="username@domain.com" required />
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Active WhatsApp Phone Number <span class="text-red-500">*</span></label>
-                    <input type="tel" id="candidatePhone" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., 03XXXXXXXXX" required />
+                    <input type="tel" id="candidatePhone" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none" placeholder="e.g., 03XXXXXXXXX" required />
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Date of Birth <span class="text-red-500">*</span></label>
-                    <input type="date" id="candidateDOB" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" required />
+                    <input type="date" id="candidateDOB" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium" required />
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Target Strategic Department Position <span class="text-red-500">*</span></label>
-                    <select id="targetPosition" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 cursor-pointer" required>
+                    <select id="targetPosition" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium" required>
                         <option value="" disabled selected>Select a target position...</option>
                         <option value="Management Council Executive">Management Council Executive</option>
                         <option value="Media & Public Relations Director">Media & Public Relations Director</option>
@@ -108,37 +77,21 @@
                         <option value="Logistics Deployment Specialist">Logistics Deployment Specialist</option>
                     </select>
                 </div>
-
-                <!-- CV UPLOADER -->
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Attach Your CV / Resume <span class="text-red-500">*</span></label>
-                    <input type="file" id="candidateCV" accept=".pdf,.docx,.doc,.jpg,.jpeg,.png" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 cursor-pointer" required />
+                    <input type="file" id="candidateCV" accept=".pdf,.docx,.doc,.jpg,.jpeg,.png" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 text-sm" required />
                 </div>
-
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Why are you uniquely capable of acquiring this specific role? <span class="text-red-500">*</span></label>
-                    <textarea id="capabilityStatement" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="Detail your leadership skillsets, and how your values align with Nayi Subah's motive..." required></textarea>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Why are you uniquely capable? <span class="text-red-500">*</span></label>
+                    <textarea id="capabilityStatement" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none" placeholder="Detail your skillsets..." required></textarea>
                 </div>
-
-                <button type="submit" class="w-full sun-accent hover:opacity-95 text-white font-bold uppercase tracking-[2px] text-sm py-3.5 rounded-xl transition shadow-md shadow-amber-600/20 cursor-pointer">
-                    Submit Enlistment File to Council
-                </button>
+                <button type="submit" class="w-full sun-accent hover:opacity-95 text-white font-bold uppercase tracking-[2px] text-sm py-3.5 rounded-xl shadow-md cursor-pointer">Submit Enlistment File to Council</button>
             </form>
         </main>
-
-        <aside class="lg:col-span-5">
-            <div class="bg-emerald-950 text-emerald-100 p-5 rounded-2xl border border-emerald-800 shadow-sm space-y-4">
-                <h4 class="serif-heading text-lg font-bold text-amber-300 border-b border-emerald-800 pb-2 uppercase tracking-wide">
-                    🤝 Why Join Nayi Subah?
-                </h4>
-                <p class="text-sm leading-relaxed text-emerald-100/80">
-                    Nayi Subah is founded on the conviction that the youth of Lahore must drive change under structured student leadership. By stepping up, you obtain direct real-world execution experience in helping orphans and the poor.
-                </p>
-            </div>
-        </aside>
+        <aside class="lg:col-span-5"><div class="bg-emerald-950 text-emerald-100 p-5 rounded-2xl border border-emerald-800"><h4 class="serif-heading text-lg font-bold text-amber-300 border-b border-emerald-800 pb-2 uppercase">🤝 Why Join Nayi Subah?</h4><p class="text-sm leading-relaxed text-emerald-100/80 mt-2">Nayi Subah is founded on the conviction that the youth of Lahore must drive change under structured student leadership. By stepping up, you obtain direct real-world execution experience in helping orphans and the poor.</p></div></aside>
     </div>
 
-    <!-- TRANSMISSION LAYER -->
+    <!-- SCRIPT HANDLER WITH INTEGRATED WHATSAPP HANDSHAKE -->
     <script>
         document.getElementById('ngoApplicationForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -151,40 +104,29 @@
             const capability = document.getElementById('capabilityStatement').value.trim();
             const cvFile = document.getElementById('candidateCV').files[0];
 
-            if(!name || !email || !phone || !dob || !position || !capability || !cvFile) {
-                Swal.fire({ icon: 'error', title: 'Missing Info', text: 'All fields are mandatory!', background: '#022c22', color: '#fff' });
-                return;
-            }
-
             Swal.fire({
-                title: 'Uploading CV Securely...',
-                text: 'Generating viewable access links...',
-                background: '#022c22',
-                color: '#fff',
-                allowOutsideClick: false,
+                title: 'Transmitting Details...',
+                text: 'Registering your file securely...',
+                background: '#022c22', color: '#fff', allowOutsideClick: false,
                 didOpen: () => { Swal.showLoading(); }
             });
 
             try {
-                // High-performance payload routing via tmpfiles.org
+                // Securely upload file using tmpfiles API
                 const formData = new FormData();
                 formData.append('file', cvFile);
 
-                const uploadResponse = await fetch('https://tmpfiles.org/api/v1/upload', {
-                    method: 'POST',
-                    body: formData
-                });
-                
+                const uploadResponse = await fetch('https://tmpfiles.org/api/v1/upload', { method: 'POST', body: formData });
                 const uploadResult = await uploadResponse.json();
 
                 if (!uploadResponse.ok || !uploadResult.data || !uploadResult.data.url) {
-                    throw new Error('File routing endpoint refusal.');
+                    throw new Error('File delivery infrastructure failed.');
                 }
 
-                // Transform view URL into a clean direct link
+                // Convert file URL to a clean download address
                 const secureCVLink = uploadResult.data.url;
 
-                // Fire payload to backend
+                // POST data to Cloudflare Workers background handler
                 const response = await fetch('/api/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -194,24 +136,32 @@
                 const result = await response.json();
 
                 if (result.success) {
+                    // Create the custom WhatsApp Message Layout
+                    const foundationWhatsAppNum = '923354018607'; 
+                    const rawText = `Hello Nayi Subah Foundation Council,\n\nMy name is ${name}. I have successfully submitted my online application for the position of "${position}".\n\n--- ABOUT NAYI SUBAH FOUNDATION ---\nOur definitive purpose is to protect the underprivileged, mobilize direct community resources, uplift the poor, and support orphans across society under youth-led execution.\n\nThank you for reviewing my registration registry. I look forward to being answered shortly.`;
+                    
+                    const encodedText = encodeURIComponent(rawText);
+                    const whatsappRedirectUrl = `https://wa.me/${foundationWhatsAppNum}?text=${encodedText}`;
+
                     Swal.fire({
                         icon: 'success',
                         title: 'APPLICATION TRANSMITTED',
-                        text: 'Your profile and viewable CV file have safely reached our counseling boards.',
-                        background: '#022c22',
-                        color: '#fff'
+                        text: 'Opening WhatsApp to verify your registration and deliver your foundation greeting...',
+                        background: '#022c22', color: '#fff'
+                    }).then(() => {
+                        document.getElementById('ngoApplicationForm').reset();
+                        // Instantly switch the applicant over to WhatsApp chat thread
+                        window.location.href = whatsappRedirectUrl;
                     });
-                    document.getElementById('ngoApplicationForm').reset();
                 } else {
-                    throw new Error(result.error || 'Backend registry mismatch');
+                    throw new Error(result.error || 'Identity matching drop.');
                 }
             } catch (err) {
                 Swal.fire({
                     icon: 'error',
                     title: 'REGISTRATION FAULT',
-                    text: 'Unable to route file packet transmission. Please try a smaller file size or a clean format.',
-                    background: '#022c22',
-                    color: '#fff'
+                    text: err.message || 'Transmission failed. Ensure your Resend Key is correctly configured inside your register.js file.',
+                    background: '#022c22', color: '#fff'
                 });
             }
         });
