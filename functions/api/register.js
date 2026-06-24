@@ -53,7 +53,7 @@ export async function onRequestPost(context) {
         </div>`;
 
         // ⚠️ REMEMBER TO PUT YOUR ACTUAL KEY INSIDE THESE SINGLE QUOTES!
-        const resendApiKey = 're_your_actual_copied_key_here';
+        const resendApiKey = 're_Qzvb8YWp_Fjh8SPswfHq9hCtFQaa6T';
 
         const resendResponse = await fetch('https://api.resend.com/emails', {
             method: 'POST',
