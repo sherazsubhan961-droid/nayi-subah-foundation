@@ -1,5 +1,5 @@
 export async function onRequestPost(context) {
-    const { request } = context;
+    const { request, env } = context;
     
     const headers = {
         'Access-Control-Allow-Origin': '*',
@@ -16,7 +16,6 @@ export async function onRequestPost(context) {
         <div style="background-color: #f3f4f6; padding: 30px; font-family: sans-serif;">
             <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border-top: 6px solid #d97706; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); padding: 25px;">
                 <h2 style="color: #065f46; margin-top: 0; font-family: serif; text-transform: uppercase; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">🕊️ NAYI SUBAH APPLICANT PROFILE REGISTRY</h2>
-                
                 <p style="font-size: 14px; color: #4b5563;">A new candidate application has been filed via the live hub deployment node.</p>
                 
                 <div style="background-color: #f0fdf4; border-left: 4px solid #10b981; padding: 15px; margin: 20px 0; border-radius: 4px;">
@@ -44,21 +43,20 @@ export async function onRequestPost(context) {
                         📂 Open & Evaluate Candidate CV File
                     </a>
                 </div>
-
-                <p style="font-size: 11px; color: #9ca3af; text-align: center; margin-top: 30px; border-top: 1px solid #f3f4f6; padding-top: 10px;">
-                    Motive: Help the Poor & Support Orphans<br>
-                    Co-Founded & Spearheaded by Khwaja Muhammad Subhan Sheraz & Haider Ali Waqas
-                </p>
             </div>
         </div>`;
 
-        // ⚠️ REMEMBER TO PUT YOUR ACTUAL KEY INSIDE THESE SINGLE QUOTES!
-        const resendApiKey = 're_Qzvb8YWp_Fjh8SPswfHq9hCtFQaa6T';
+        // Pulls securely directly from Cloudflare environment dashboard settings
+        const resendApiKey = env.RESEND_API_KEY;
+
+        if (!resendApiKey) {
+            return new Response(JSON.stringify({ success: false, error: "Missing RESEND_API_KEY Variable in Cloudflare Settings." }), { status: 500, headers });
+        }
 
         const resendResponse = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: { 
-                'Authorization': `Bearer ${resendApiKey}`, 
+                'Authorization': `Bearer ${resendApiKey.trim()}`, 
                 'Content-Type': 'application/json' 
             },
             body: JSON.stringify({
@@ -72,7 +70,7 @@ export async function onRequestPost(context) {
         const resendData = await resendResponse.json();
 
         if (!resendResponse.ok) {
-            return new Response(JSON.stringify({ success: false, error: resendData.message }), { status: 500, headers });
+            return new Response(JSON.stringify({ success: false, error: resendData.message || "Resend Auth Failure" }), { status: 500, headers });
         }
 
         return new Response(JSON.stringify({ success: true }), { status: 200, headers });
