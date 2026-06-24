@@ -39,12 +39,10 @@ export async function onRequestPost(context) {
                     <p style="margin: 0; font-size: 13px; color: #4b5563; line-height: 1.6; font-style: italic;">"${capability}"</p>
                 </div>
 
-                <!-- CLICKABLE LIVE CV EVALUATION LINK BUTTON -->
                 <div style="text-align: center; margin: 25px 0;">
                     <a href="${cvUrl}" target="_blank" style="background-color: #ea580c; color: #ffffff; font-weight: bold; text-decoration: none; padding: 12px 30px; border-radius: 8px; display: inline-block; font-size: 14px; box-shadow: 0 4px 6px rgba(234, 88, 12, 0.2);">
                         📂 Open & Evaluate Candidate CV File
                     </a>
-                    <p style="margin: 8px 0 0 0; font-size: 11px; color: #64748b;">(Clicking this button opens the uploaded resume document directly in your browser)</p>
                 </div>
 
                 <p style="font-size: 11px; color: #9ca3af; text-align: center; margin-top: 30px; border-top: 1px solid #f3f4f6; padding-top: 10px;">
@@ -54,10 +52,10 @@ export async function onRequestPost(context) {
             </div>
         </div>`;
 
-        // ⚠️ REMEMBER TO PUT YOUR RESEND KEY INSIDE THESE SINGLE QUOTES BELOW!
-        const resendApiKey = 'YOUR_ACTUAL_RESEND_KEY_HERE';
+        // ⚠️ REMEMBER TO PUT YOUR ACTUAL KEY INSIDE THESE SINGLE QUOTES!
+        const resendApiKey = 're_your_actual_copied_key_here';
 
-        await fetch('https://api.resend.com/emails', {
+        const resendResponse = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: { 
                 'Authorization': `Bearer ${resendApiKey}`, 
@@ -70,6 +68,12 @@ export async function onRequestPost(context) {
                 html: emailHTMLContent
             })
         });
+
+        const resendData = await resendResponse.json();
+
+        if (!resendResponse.ok) {
+            return new Response(JSON.stringify({ success: false, error: resendData.message }), { status: 500, headers });
+        }
 
         return new Response(JSON.stringify({ success: true }), { status: 200, headers });
     } catch (error) {
