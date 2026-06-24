@@ -47,7 +47,7 @@ export async function onRequestPost(context) {
         </div>`;
 
         // Pulls securely directly from Cloudflare environment dashboard settings
-        const resendApiKey = env.RESEND_API_KEY;
+        const resendApiKey = 're_cq4W811S_AY3VuQqMuhWRsgiykRuufxSA';
 
         if (!resendApiKey) {
             return new Response(JSON.stringify({ success: false, error: "Missing RESEND_API_KEY Variable in Cloudflare Settings." }), { status: 500, headers });
