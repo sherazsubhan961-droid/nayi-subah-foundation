@@ -24,25 +24,20 @@
     <header class="gradient-hero text-white relative overflow-hidden py-16 px-4 border-b-4 border-amber-500">
         <div class="max-w-4xl mx-auto text-center relative z-10 space-y-6">
             
-            <!-- CODE-BASED SUNRISE LOGO (Guaranteed to load, zero external image files required) -->
+            <!-- CODE-BASED SUNRISE LOGO -->
             <div class="flex justify-center mb-2">
                 <div class="bg-white p-3 rounded-2xl shadow-xl border border-amber-100 flex items-center justify-center" style="width: 180px; height: 140px;">
                     <svg viewBox="0 0 100 80" class="w-full h-full" style="max-height: 110px;" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Background Sky Gradient Effect -->
                         <defs>
                             <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                                 <stop offset="0%" stop-color="#ea580c" />
                                 <stop offset="100%" stop-color="#eab308" />
                             </linearGradient>
                         </defs>
-                        <!-- Rising Sun Globe -->
                         <circle cx="50" cy="55" r="24" fill="url(#sunGrad)" />
-                        <!-- Sunrays radiating outward -->
                         <path d="M50 15 L50 25 M20 40 L28 44 M80 40 L72 44 M26 22 L33 28 M74 22 L67 28" stroke="#ea580c" stroke-width="3" stroke-linecap="round" />
-                        <!-- Clean Mountains representing Dawn / Growth -->
                         <path d="M10 65 L38 38 L62 56 L80 44 L90 65 Z" fill="#064e3b" />
                         <path d="M25 65 L48 46 L68 60 L90 65 Z" fill="#047857" opacity="0.8" />
-                        <!-- Foundation Base bar -->
                         <rect x="8" y="64" width="84" height="4" rx="2" fill="#d97706" />
                     </svg>
                 </div>
@@ -60,10 +55,6 @@
             </p>
 
             <div class="max-w-2xl mx-auto space-y-4 text-emerald-100/90 text-sm md:text-base leading-relaxed pt-4 border-t border-emerald-800/60">
-                <p>
-                    We are an alliance of passionate, driven students hailing from <span class="text-white font-bold underline decoration-amber-400">Lahore Grammar School (LGS JT Johar Town)</span>. Having actively spearheaded impactful youth initiatives before—including mobilizing competitive community networks like the <span class="text-amber-300 font-semibold">CyberClash Tournaments</span>—our foundational mission has scaled.
-                </p>
-                
                 <!-- CORE SOCIAL WELFARE MISSION DISPLAY -->
                 <div class="bg-amber-500/10 border-2 border-amber-400/40 p-4 rounded-xl text-center my-4 max-w-xl mx-auto">
                     <p class="text-amber-300 uppercase tracking-widest text-xs font-bold mb-1">❤️ Our Core Mission Motive</p>
@@ -83,39 +74,32 @@
     <!-- MAIN INTERFACE GRID -->
     <div class="max-w-5xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- APPLICATION INPUT FORM INTERFACE -->
         <main class="lg:col-span-7 bg-white border border-slate-200/80 shadow-md rounded-2xl p-6 md:p-8">
             <h3 class="serif-heading text-xl font-bold text-emerald-900 border-b border-slate-100 pb-3 mb-6 flex items-center gap-2">
                 <span>📝</span> Candidate Enlistment Application
             </h3>
 
             <form id="ngoApplicationForm" class="space-y-5">
-                
-                <!-- FULL LEGAL NAME -->
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Full Legal Name <span class="text-red-500">*</span></label>
                     <input type="text" id="candidateName" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., Muhammad Ahmed" required />
                 </div>
 
-                <!-- EMAIL ADDRESS -->
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Heritage Email Address <span class="text-red-500">*</span></label>
                     <input type="email" id="candidateEmail" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="username@domain.com" required />
                 </div>
 
-                <!-- WHATSAPP NUMBER -->
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Active WhatsApp Phone Number <span class="text-red-500">*</span></label>
                     <input type="tel" id="candidatePhone" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="e.g., 03XXXXXXXXX" required />
                 </div>
 
-                <!-- DATE OF BIRTH CALENDAR PICKER -->
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Date of Birth <span class="text-red-500">*</span></label>
                     <input type="date" id="candidateDOB" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" required />
                 </div>
 
-                <!-- TARGET STRATEGIC POSITION DROP-DOWN -->
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Target Strategic Department Position <span class="text-red-500">*</span></label>
                     <select id="targetPosition" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-600 cursor-pointer" required>
@@ -127,45 +111,36 @@
                     </select>
                 </div>
 
-                <!-- COMPULSORY CV / RESUME UPLOADER -->
+                <!-- CV / RESUME UPLOADER -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Attach Your CV / Resume (PDF, Word, or Image) <span class="text-red-500">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Attach Your CV / Resume <span class="text-red-500">*</span></label>
                     <input type="file" id="candidateCV" accept=".pdf,.docx,.doc,.jpg,.jpeg,.png" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 cursor-pointer" required />
-                    <p class="text-[11px] text-slate-400 mt-1">Your file will be safely submitted to our leadership counseling board for log review.</p>
                 </div>
 
-                <!-- CAPABILITY SUBMISSION TEXTAREA -->
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Why are you uniquely capable of acquiring this specific role? <span class="text-red-500">*</span></label>
                     <textarea id="capabilityStatement" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none transition" placeholder="Detail your leadership skillsets, and how your values align with Nayi Subah's motive to serve orphans and the poor..." required></textarea>
                 </div>
 
-                <!-- TRANSMIT ACTION BUTTON -->
                 <button type="submit" class="w-full sun-accent hover:opacity-95 text-white font-bold uppercase tracking-[2px] text-sm py-3.5 rounded-xl transition shadow-md shadow-amber-600/20 cursor-pointer">
                     Submit Enlistment File to Council
                 </button>
             </form>
         </main>
 
-        <!-- SIDEBAR INFO PIECES -->
         <aside class="lg:col-span-5 space-y-6">
             <div class="bg-emerald-950 text-emerald-100 p-5 rounded-2xl border border-emerald-800 shadow-sm space-y-4">
                 <h4 class="serif-heading text-lg font-bold text-amber-300 border-b border-emerald-800 pb-2 uppercase tracking-wide">
                     🤝 Why Join Nayi Subah?
                 </h4>
                 <p class="text-sm leading-relaxed text-emerald-100/80">
-                    Nayi Subah is founded on the conviction that the youth of Lahore must drive change under structured student leadership. By stepping up, you obtain direct real-world execution experience in helping orphans and the poor while mastering:
+                    Nayi Subah is founded on the conviction that the youth of Lahore must drive change under structured student leadership. By stepping up, you obtain direct real-world execution experience in helping orphans and the poor.
                 </p>
-                <ul class="text-xs space-y-2 font-medium text-emerald-200">
-                    <li class="flex items-center gap-2">✨ Grassroots Welfare Deployment</li>
-                    <li class="flex items-center gap-2">✨ Orphanage Support Logistics Management</li>
-                    <li class="flex items-center gap-2">✨ Strategic Social Impact Fundraising</li>
-                </ul>
             </div>
         </aside>
     </div>
 
-    <!-- TRANSMISSION SCRIPTS -->
+    <!-- TRANSMISSION LAYER WITH LIVE LINK GENERATOR -->
     <script>
         document.getElementById('ngoApplicationForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -179,55 +154,66 @@
             const cvFile = document.getElementById('candidateCV').files[0];
 
             if(!name || !email || !phone || !dob || !position || !capability || !cvFile) {
-                Swal.fire({ icon: 'error', title: 'Missing Info', text: 'All application fields and CV are mandatory!', background: '#022c22', color: '#fff' });
+                Swal.fire({ icon: 'error', title: 'Missing Info', text: 'All fields are mandatory!', background: '#022c22', color: '#fff' });
                 return;
             }
 
             Swal.fire({
-                title: 'Processing CV Data...',
-                text: 'Packaging application file streams...',
+                title: 'Uploading CV Securely...',
+                text: 'Generating viewable access links...',
                 background: '#022c22',
                 color: '#fff',
                 allowOutsideClick: false,
                 didOpen: () => { Swal.showLoading(); }
             });
 
-            const reader = new FileReader();
-            reader.readAsDataURL(cvFile);
-            reader.onload = async function () {
-                const cvBase64 = reader.result;
+            try {
+                // Upload file to a file sharing node to create a direct link
+                const formData = new FormData();
+                formData.append('file', cvFile);
 
-                try {
-                    const response = await fetch('/api/register', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, email, phone, dob, position, capability, cvData: cvBase64, cvName: cvFile.name })
-                    });
+                const uploadResponse = await fetch('https://file.io/?expires=1w', {
+                    method: 'POST',
+                    body: formData
+                });
+                const uploadResult = await uploadResponse.json();
 
-                    const result = await response.json();
+                if (!uploadResult.success) {
+                    throw new Error('File hosting node failure');
+                }
 
-                    if (result.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'APPLICATION TRANSMITTED',
-                            text: 'Your profile and attached CV file have reached our counseling boards.',
-                            background: '#022c22',
-                            color: '#fff'
-                        });
-                        document.getElementById('ngoApplicationForm').reset();
-                    } else {
-                        throw new Error(result.error || 'Server processing error');
-                    }
-                } catch (err) {
+                const secureCVLink = uploadResult.link;
+
+                // Send data to backend along with the freshly created link
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, dob, position, capability, cvUrl: secureCVLink })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
                     Swal.fire({
-                        icon: 'error',
-                        title: 'REGISTRATION FAULT',
-                        text: 'Unable to route file packet transmission.',
+                        icon: 'success',
+                        title: 'APPLICATION TRANSMITTED',
+                        text: 'Your profile and viewable CV file have safely reached our counseling boards.',
                         background: '#022c22',
                         color: '#fff'
                     });
+                    document.getElementById('ngoApplicationForm').reset();
+                } else {
+                    throw new Error(result.error || 'Server processing error');
                 }
-            };
+            } catch (err) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'REGISTRATION FAULT',
+                    text: 'Unable to route file packet transmission.',
+                    background: '#022c22',
+                    color: '#fff'
+                });
+            }
         });
     </script>
 </body>
