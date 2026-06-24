@@ -10,15 +10,14 @@ export async function onRequestPost(context) {
 
     try {
         const body = await request.json();
-        const { name, email, phone, dob, position, capability, cvName } = body;
+        const { name, email, phone, dob, position, capability, cvUrl } = body;
 
-        // Structured email layout built to perfectly deliver data profiles directly to your inbox
         const emailHTMLContent = `
         <div style="background-color: #f3f4f6; padding: 30px; font-family: sans-serif;">
             <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border-top: 6px solid #d97706; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); padding: 25px;">
                 <h2 style="color: #065f46; margin-top: 0; font-family: serif; text-transform: uppercase; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">🕊️ NAYI SUBAH APPLICANT PROFILE REGISTRY</h2>
                 
-                <p style="font-size: 14px; color: #4b5563;">A new candidate application has been successfully filed via the live hub deployment node.</p>
+                <p style="font-size: 14px; color: #4b5563;">A new candidate application has been filed via the live hub deployment node.</p>
                 
                 <div style="background-color: #f0fdf4; border-left: 4px solid #10b981; padding: 15px; margin: 20px 0; border-radius: 4px;">
                     <h3 style="margin: 0 0 10px 0; color: #065f46; font-size: 15px;">👤 CANDIDATE PROFILE INFO</h3>
@@ -35,18 +34,17 @@ export async function onRequestPost(context) {
                     </div>
                 </div>
 
-                <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <div style="background-color: #f9fafb; border: 1px solid #e5e7eb; padding: 15px; border-radius: 8px; margin-bottom: 25px;">
                     <h4 style="margin: 0 0 8px 0; color: #374151; font-size: 13px; text-transform: uppercase;">Core Capability Statement:</h4>
                     <p style="margin: 0; font-size: 13px; color: #4b5563; line-height: 1.6; font-style: italic;">"${capability}"</p>
                 </div>
 
-                <div style="background-color: #f1f5f9; border: 1px solid #cbd5e1; padding: 12px; border-radius: 6px; text-align: center;">
-                    <p style="margin: 0; font-size: 13px; color: #334155; font-weight: bold;">
-                        📎 Uploaded CV Filename: <span style="color: #0284c7;">${cvName || 'Attached_Document.pdf'}</span>
-                    </p>
-                    <p style="margin: 4px 0 0 0; font-size: 11px; color: #64748b;">
-                        (Review full resume document details directly during candidate's evaluation interview)
-                    </p>
+                <!-- CLICKABLE LIVE CV EVALUATION LINK BUTTON -->
+                <div style="text-align: center; margin: 25px 0;">
+                    <a href="${cvUrl}" target="_blank" style="background-color: #ea580c; color: #ffffff; font-weight: bold; text-decoration: none; padding: 12px 30px; border-radius: 8px; display: inline-block; font-size: 14px; box-shadow: 0 4px 6px rgba(234, 88, 12, 0.2);">
+                        📂 Open & Evaluate Candidate CV File
+                    </a>
+                    <p style="margin: 8px 0 0 0; font-size: 11px; color: #64748b;">(Clicking this button opens the uploaded resume document directly in your browser)</p>
                 </div>
 
                 <p style="font-size: 11px; color: #9ca3af; text-align: center; margin-top: 30px; border-top: 1px solid #f3f4f6; padding-top: 10px;">
@@ -56,8 +54,8 @@ export async function onRequestPost(context) {
             </div>
         </div>`;
 
-        // ⚠️ Put your exact Resend API Key inside these single quotes!
-        const resendApiKey = 're_C1NcnkVR_9Lu6kyDNy32emeL1WRJTCcFV';
+        // ⚠️ REMEMBER TO PUT YOUR RESEND KEY INSIDE THESE SINGLE QUOTES BELOW!
+        const resendApiKey = 'YOUR_ACTUAL_RESEND_KEY_HERE';
 
         await fetch('https://api.resend.com/emails', {
             method: 'POST',
