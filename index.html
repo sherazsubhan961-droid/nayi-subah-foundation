@@ -59,19 +59,27 @@
         window.handleEmailOTP = async () => {
             const email = document.getElementById('userEmailInput').value.trim();
             if(!email) {
-                Swal.fire({ icon: 'warning', title: 'Email Needed', text: 'Please enter your Gmail address!' });
+                Swal.fire({ icon: 'warning', title: 'Email Needed', text: 'Please enter your email address!' });
                 return;
             }
+
+            const actionCodeSettings = {
+                url: window.location.href,
+                handleCodeInApp: true
+            };
+
+            Swal.fire({ title: 'Sending Link...', text: 'Please wait...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+
             try {
-                const actionCodeSettings = {
-                    url: window.location.origin + window.location.pathname,
-                    handleCodeInApp: true
-                };
                 await sendSignInLinkToEmail(auth, email, actionCodeSettings);
                 window.localStorage.setItem('emailForSignIn', email);
-                Swal.fire({ icon: 'info', title: 'OTP Link Sent!', text: `Check ${email} inbox to verify and login.` });
+                Swal.fire({ 
+                    icon: 'success', 
+                    title: 'Verification Email Sent!', 
+                    text: `Check ${email} (including Spam folder) to verify and unlock the portal.` 
+                });
             } catch (error) {
-                Swal.fire({ icon: 'error', title: 'OTP Error', text: error.message });
+                Swal.fire({ icon: 'error', title: 'Failed to Send Email', text: error.message });
             }
         };
 
@@ -84,6 +92,9 @@
                 .then(() => {
                     window.localStorage.removeItem('emailForSignIn');
                     Swal.fire({ icon: 'success', title: 'Email Verified!', timer: 1500, showConfirmButton: false });
+                })
+                .catch((error) => {
+                    Swal.fire({ icon: 'error', title: 'Verification Failed', text: error.message });
                 });
         }
 
@@ -123,14 +134,14 @@
 
                 <div class="relative flex py-1 items-center">
                     <div class="flex-grow border-t border-slate-800"></div>
-                    <span class="flex-shrink mx-3 text-[10px] font-black text-slate-500 uppercase tracking-widest">OR VIA EMAIL OTP</span>
+                    <span class="flex-shrink mx-3 text-[10px] font-black text-slate-500 uppercase tracking-widest">OR VIA EMAIL LINK</span>
                     <div class="flex-grow border-t border-slate-800"></div>
                 </div>
 
                 <div class="space-y-3">
                     <input type="email" id="userEmailInput" placeholder="Enter your email address..." class="w-full bg-slate-950/80 border border-slate-700/60 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
                     <button onclick="handleEmailOTP()" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-black py-3.5 rounded-2xl text-xs uppercase tracking-wider transition transform active:scale-95 shadow-lg shadow-cyan-500/25 cursor-pointer">
-                        📩 Send Email OTP Link
+                        📩 Send Verification Email Link
                     </button>
                 </div>
             </div>
@@ -213,7 +224,7 @@
         </footer>
     </div>
 
-    <!-- SUBMISSION SCRIPT -->
+    <!-- SUBMISSION SCRIPT WITH ACCESS KEY INTEGRATED -->
     <script>
         async function processSubmission(e) {
             e.preventDefault();
@@ -231,24 +242,28 @@
                 return;
             }
 
-            Swal.fire({ title: 'Processing...', text: 'Submitting application details...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+            Swal.fire({ title: 'Processing Application...', text: 'Sending email notification...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
             btn.disabled = true; btn.innerText = "Processing...";
 
+            // Send notification directly via Web3Forms API using your Access Key
             try {
-                await fetch('/api/register', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        candidateName: name,
-                        candidatePhone: phone,
-                        candidateEmail: email,
-                        category: category,
-                        bio: bio,
-                        cvFileName: cvFile.name
-                    })
+                const formData = new FormData();
+                formData.append("access_key", "faefa9ec-a170-4241-a2aa-4e536dd8b024");
+                formData.append("subject", "New Candidate Application - Nayi Subah Foundation");
+                formData.append("from_name", "Nayi Subah Portal");
+                formData.append("Candidate Name", name);
+                formData.append("Category", category);
+                formData.append("Phone", phone);
+                formData.append("Email", email);
+                formData.append("CV File Name", cvFile.name);
+                formData.append("Bio", bio);
+
+                await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
                 });
             } catch (err) {
-                console.warn("Backend executed.");
+                console.warn("Notification error:", err);
             }
 
             const whatsappNumber = "923354018607";
@@ -257,7 +272,7 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Application Submitted!',
-                text: 'Opening WhatsApp confirmation now...',
+                text: 'Email notification sent & opening WhatsApp confirmation now...',
                 timer: 2000,
                 showConfirmButton: false
             }).then(() => {
