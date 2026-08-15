@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayi Subah Foundation | Registration Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <!-- FIREBASE AUTHENTICATION SDK -->
@@ -22,7 +22,6 @@
             signOut 
         } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-        // ✅ YOUR EXACT FIREBASE CONFIGURATION
         const firebaseConfig = {
             apiKey: "AIzaSyCtcgd_6w-NStkVYAzODvaQMhVktKd5QwQ",
             authDomain: "nayi-subah.firebaseapp.com",
@@ -64,7 +63,11 @@
                 return;
             }
             try {
-                await sendSignInLinkToEmail(auth, email, { url: window.location.href, handleCodeInApp: true });
+                const actionCodeSettings = {
+                    url: window.location.origin + window.location.pathname,
+                    handleCodeInApp: true
+                };
+                await sendSignInLinkToEmail(auth, email, actionCodeSettings);
                 window.localStorage.setItem('emailForSignIn', email);
                 Swal.fire({ icon: 'info', title: 'OTP Link Sent!', text: `Check ${email} inbox to verify and login.` });
             } catch (error) {
@@ -91,38 +94,42 @@
         };
     </script>
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090d16; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col justify-between">
+<body class="bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden flex flex-col justify-between">
 
-    <!-- 1. MANDATORY LOGIN GATEWAY OVERLAY -->
-    <div id="authOverlay" class="fixed inset-0 bg-slate-950/95 backdrop-blur-md z-50 flex items-center justify-center p-4">
-        <div class="w-full max-w-md bg-slate-900 border border-slate-800 p-8 rounded-3xl shadow-2xl space-y-6 text-center">
+    <!-- FUNKY BACKGROUND GLOW ELEMENTS -->
+    <div class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-gradient-to-tr from-fuchsia-600 to-indigo-600 rounded-full blur-[140px] opacity-40 pointer-events-none"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-gradient-to-br from-cyan-500 to-emerald-500 rounded-full blur-[140px] opacity-35 pointer-events-none"></div>
+
+    <!-- 1. AUTHENTICATION GATEWAY OVERLAY -->
+    <div id="authOverlay" class="fixed inset-0 bg-slate-950/80 backdrop-blur-2xl z-50 flex items-center justify-center p-4">
+        <div class="w-full max-w-md bg-slate-900/90 border border-slate-700/50 p-8 rounded-3xl shadow-[0_0_50px_rgba(168,85,247,0.2)] space-y-6 text-center backdrop-blur-xl">
             
             <div class="space-y-2">
-                <div class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 w-12 h-12 rounded-2xl mx-auto flex items-center justify-center text-xl font-bold">
+                <div class="bg-gradient-to-tr from-pink-500 to-violet-600 text-white w-14 h-14 rounded-2xl mx-auto flex items-center justify-center text-2xl font-black shadow-lg shadow-pink-500/30">
                     🏛️
                 </div>
-                <h1 class="text-2xl font-black text-white">Nayi Subah Foundation</h1>
-                <p class="text-xs text-slate-400">Login via Google or Email OTP to access candidate portal.</p>
+                <h1 class="text-3xl font-black bg-gradient-to-r from-pink-400 via-purple-300 to-cyan-400 bg-clip-text text-transparent">Nayi Subah Foundation</h1>
+                <p class="text-xs text-slate-400 font-medium">Access your recruitment & applicant dashboard</p>
             </div>
 
             <div class="space-y-4">
-                <button onclick="handleGoogleLogin()" class="w-full bg-white hover:bg-slate-100 text-slate-900 font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-3 transition cursor-pointer shadow-lg">
+                <button onclick="handleGoogleLogin()" class="w-full bg-white hover:bg-slate-100 text-slate-900 font-bold py-3.5 px-4 rounded-2xl flex items-center justify-center gap-3 transition transform active:scale-95 shadow-xl cursor-pointer">
                     <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
                     Continue with Google
                 </button>
 
                 <div class="relative flex py-1 items-center">
                     <div class="flex-grow border-t border-slate-800"></div>
-                    <span class="flex-shrink mx-3 text-[10px] font-bold text-slate-500 uppercase tracking-widest">OR VIA EMAIL OTP</span>
+                    <span class="flex-shrink mx-3 text-[10px] font-black text-slate-500 uppercase tracking-widest">OR VIA EMAIL OTP</span>
                     <div class="flex-grow border-t border-slate-800"></div>
                 </div>
 
-                <div class="space-y-2">
-                    <input type="email" id="userEmailInput" placeholder="Enter your Gmail address..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
-                    <button onclick="handleEmailOTP()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider transition cursor-pointer">
+                <div class="space-y-3">
+                    <input type="email" id="userEmailInput" placeholder="Enter your email address..." class="w-full bg-slate-950/80 border border-slate-700/60 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                    <button onclick="handleEmailOTP()" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-black py-3.5 rounded-2xl text-xs uppercase tracking-wider transition transform active:scale-95 shadow-lg shadow-cyan-500/25 cursor-pointer">
                         📩 Send Email OTP Link
                     </button>
                 </div>
@@ -130,18 +137,18 @@
         </div>
     </div>
 
-    <!-- 2. CANDIDATE REGISTRATION PORTAL -->
-    <div id="portalContent" class="hidden min-h-screen flex flex-col justify-between">
+    <!-- 2. MAIN APPLICATION PORTAL -->
+    <div id="portalContent" class="hidden min-h-screen flex flex-col justify-between relative z-10">
         
-        <header class="bg-slate-900/80 backdrop-blur border-b border-slate-800 px-6 py-4 sticky top-0 z-40">
+        <header class="bg-slate-900/60 backdrop-blur-xl border-b border-slate-800 px-6 py-4 sticky top-0 z-40">
             <div class="max-w-5xl mx-auto flex justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl">🏛️</span>
-                    <h1 class="font-extrabold text-white tracking-wide text-lg">NAYI SUBAH FOUNDATION</h1>
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-r from-pink-500 to-purple-600 text-white w-9 h-9 rounded-xl flex items-center justify-center font-bold">🏛️</div>
+                    <h1 class="font-extrabold text-white tracking-wide text-lg bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">NAYI SUBAH FOUNDATION</h1>
                 </div>
                 <div class="flex items-center gap-3">
-                    <span id="userBadge" class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Authorized User</span>
-                    <button onclick="handleLogout()" class="bg-rose-500/10 border border-rose-500/20 text-rose-400 hover:bg-rose-500/20 px-3 py-1.5 rounded-lg text-xs font-bold transition">
+                    <span id="userBadge" class="text-xs font-bold text-cyan-300 bg-cyan-500/10 px-3 py-1.5 rounded-full border border-cyan-500/30">Authorized User</span>
+                    <button onclick="handleLogout()" class="bg-rose-500/10 border border-rose-500/30 text-rose-300 hover:bg-rose-500/20 px-3 py-1.5 rounded-xl text-xs font-bold transition">
                         Logout
                     </button>
                 </div>
@@ -149,54 +156,60 @@
         </header>
 
         <main class="max-w-3xl mx-auto w-full px-4 py-8 flex-grow">
-            <div class="bg-slate-900 border border-slate-800 p-6 md:p-8 rounded-3xl shadow-2xl space-y-6">
+            <div class="bg-slate-900/80 backdrop-blur-2xl border border-slate-700/50 p-6 md:p-10 rounded-3xl shadow-[0_0_60px_rgba(0,0,0,0.6)] space-y-8">
                 
-                <div class="border-b border-slate-800 pb-4">
-                    <h2 class="text-2xl font-black text-white">Candidate Registration</h2>
-                    <p class="text-xs text-slate-400">Fill in information below. Submission emails admin & opens WhatsApp confirmation.</p>
+                <div class="border-b border-slate-800 pb-5">
+                    <h2 class="text-3xl font-black bg-gradient-to-r from-white via-purple-200 to-cyan-300 bg-clip-text text-transparent">Position Application Portal</h2>
+                    <p class="text-xs text-slate-400 mt-1 font-medium">Select your position category, attach your CV (PDF required), and submit your details.</p>
                 </div>
 
-                <form id="registrationForm" onsubmit="processSubmission(event)" class="space-y-4">
+                <form id="registrationForm" onsubmit="processSubmission(event)" class="space-y-6">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Full Candidate Name</label>
-                        <input type="text" id="candidateName" required placeholder="e.g. Ali Ahmed" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Contact WhatsApp</label>
-                            <input type="tel" id="candidatePhone" required placeholder="0335xxxxxxx" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Candidate Email Address</label>
-                            <input type="email" id="candidateEmail" required placeholder="candidate@gmail.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Program Selection</label>
-                        <select id="programCategory" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
-                            <option value="Youth Development Program">Youth Development Program</option>
-                            <option value="Skill Development & Training">Skill Development & Training</option>
-                            <option value="Community Support Initiative">Community Support Initiative</option>
+                        <label class="block text-xs font-black uppercase tracking-wider text-cyan-400 mb-2">Apply For Category <span class="text-rose-400">*</span></label>
+                        <select id="programCategory" required class="w-full bg-slate-950/90 border border-slate-700/80 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition cursor-pointer">
+                            <option value="" disabled selected>Select Category</option>
+                            <option value="General Management">General Management</option>
+                            <option value="Media and Marketing">Media and Marketing</option>
+                            <option value="Head at Nayi Subah">Head at Nayi Subah</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Address / Remarks</label>
-                        <textarea id="candidateNotes" rows="3" placeholder="City or additional notes..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
+                        <label class="block text-xs font-black uppercase tracking-wider text-cyan-400 mb-2">Full Candidate Name <span class="text-rose-400">*</span></label>
+                        <input type="text" id="candidateName" required placeholder="e.g. Ali Ahmed" class="w-full bg-slate-950/90 border border-slate-700/80 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
                     </div>
 
-                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:opacity-95 text-slate-950 font-black py-4 rounded-xl text-sm uppercase tracking-wider transition transform active:scale-95 shadow-lg cursor-pointer">
-                        Submit & Open WhatsApp Confirmation
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-black uppercase tracking-wider text-cyan-400 mb-2">WhatsApp Contact <span class="text-rose-400">*</span></label>
+                            <input type="tel" id="candidatePhone" required placeholder="0335xxxxxxx" class="w-full bg-slate-950/90 border border-slate-700/80 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black uppercase tracking-wider text-cyan-400 mb-2">Email Address <span class="text-rose-400">*</span></label>
+                            <input type="email" id="candidateEmail" required placeholder="candidate@gmail.com" class="w-full bg-slate-950/90 border border-slate-700/80 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-black uppercase tracking-wider text-cyan-400 mb-2">Attach CV / Resume (PDF Required) <span class="text-rose-400">*</span></label>
+                        <input type="file" id="candidateCv" required accept=".pdf,.doc,.docx" class="w-full bg-slate-950/90 border border-slate-700/80 rounded-2xl px-4 py-3 text-sm text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-gradient-to-r file:from-purple-500 file:to-pink-500 file:text-white hover:file:opacity-90 cursor-pointer">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-black uppercase tracking-wider text-cyan-400 mb-2">About Yourself / Bio <span class="text-rose-400">*</span></label>
+                        <textarea id="candidateBio" required rows="4" placeholder="Tell us about your skills, prior experience, and why you are applying for this role..." class="w-full bg-slate-950/90 border border-slate-700/80 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 hover:opacity-95 text-white font-black py-4 rounded-2xl text-sm uppercase tracking-wider transition transform active:scale-95 shadow-[0_0_30px_rgba(236,72,153,0.3)] cursor-pointer">
+                        Submit Application & Open WhatsApp Confirmation
                     </button>
                 </form>
 
             </div>
         </main>
 
-        <footer class="bg-slate-950 text-center py-4 text-xs text-slate-600 border-t border-slate-900">
-            © Nayi Subah Foundation Portal • Admin Receiver: shirazsubhan961@gmail.com
+        <footer class="bg-slate-950/80 backdrop-blur border-t border-slate-900 text-center py-4 text-xs text-slate-500">
+            © Nayi Subah Foundation Portal • Official Application Gateway
         </footer>
     </div>
 
@@ -209,10 +222,16 @@
             const name = document.getElementById('candidateName').value.trim();
             const phone = document.getElementById('candidatePhone').value.trim();
             const email = document.getElementById('candidateEmail').value.trim();
-            const program = document.getElementById('programCategory').value;
-            const notes = document.getElementById('candidateNotes').value.trim();
+            const category = document.getElementById('programCategory').value;
+            const bio = document.getElementById('candidateBio').value.trim();
+            const cvFile = document.getElementById('candidateCv').files[0];
 
-            Swal.fire({ title: 'Processing...', text: 'Submitting registration details...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
+            if (!cvFile) {
+                Swal.fire({ icon: 'warning', title: 'CV Attachment Required', text: 'Please attach your CV/Resume file before submitting.' });
+                return;
+            }
+
+            Swal.fire({ title: 'Processing...', text: 'Submitting application details...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
             btn.disabled = true; btn.innerText = "Processing...";
 
             try {
@@ -223,8 +242,9 @@
                         candidateName: name,
                         candidatePhone: phone,
                         candidateEmail: email,
-                        program: program,
-                        notes: notes
+                        category: category,
+                        bio: bio,
+                        cvFileName: cvFile.name
                     })
                 });
             } catch (err) {
@@ -232,16 +252,16 @@
             }
 
             const whatsappNumber = "923354018607";
-            const textMessage = `Hello Nayi Subah Foundation!%0A%0A*New Candidate Registration Submission:*%0A👤 *Name:* ${encodeURIComponent(name)}%0A📞 *Phone:* ${encodeURIComponent(phone)}%0A📧 *Email:* ${encodeURIComponent(email)}%0A📚 *Program:* ${encodeURIComponent(program)}%0A📝 *Notes:* ${encodeURIComponent(notes)}`;
+            const textMessage = `Hello Nayi Subah Foundation!%0A%0A*New Application Submission:*%0A👤 *Name:* ${encodeURIComponent(name)}%0A📂 *Category:* ${encodeURIComponent(category)}%0A📞 *Phone:* ${encodeURIComponent(phone)}%0A📧 *Email:* ${encodeURIComponent(email)}%0A📄 *Attached CV:* ${encodeURIComponent(cvFile.name)}%0A📝 *Bio:* ${encodeURIComponent(bio)}`;
 
             Swal.fire({
                 icon: 'success',
-                title: 'Registration Submitted!',
+                title: 'Application Submitted!',
                 text: 'Opening WhatsApp confirmation now...',
                 timer: 2000,
                 showConfirmButton: false
             }).then(() => {
-                btn.disabled = false; btn.innerText = "Submit & Open WhatsApp Confirmation";
+                btn.disabled = false; btn.innerText = "Submit Application & Open WhatsApp Confirmation";
                 window.location.href = `https://wa.me/${whatsappNumber}?text=${textMessage}`;
             });
         }
